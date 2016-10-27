@@ -1,0 +1,41 @@
+_schema-version: 2.0.0
+ID: worklistTemplateNative
+version: 0.0.1
+
+modules:
+
+
+- name: web
+  type: html5
+  path: web
+  requires:
+  # -- node service URL
+     - name: js_api
+       group: destinations 
+       properties:
+          name: js_be 
+          url:  ~{service_url}
+  properties:
+    ui5_library: "https://sapui5.hana.ondemand.com/1.36.10"
+
+- name: db
+  type: hdb
+  path: db
+  requires:
+   - name: hdi-container
+
+
+- name: js
+  type: nodejs
+  path: js
+  provides:
+    - name: js_api
+      properties:
+        service_url: ${default-url}
+
+resources:
+#  type: configuration
+- name: hdi-container
+  type: com.sap.xs.hdi-container
+
+

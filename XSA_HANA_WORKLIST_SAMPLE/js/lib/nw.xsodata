@@ -1,0 +1,3 @@
+service { 
+ "worklistTemplateNative.db::northwind.Orders" as "Orders";
+}

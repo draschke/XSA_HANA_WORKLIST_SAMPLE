@@ -1,0 +1,49 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:form="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="orders.controller.Object">
+
+	<semantic:FullscreenPage id="page" navButtonPress="onNavBack" showNavButton="true" title="{i18n&gt;objectTitle}" busy="{objectView&gt;/busy}" busyIndicatorDelay="{objectView&gt;/delay}">
+
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{OrderID}">
+			</ObjectHeader>
+			
+			<form:SimpleForm editable="false" layout="ResponsiveGridLayout">
+					
+				<Label text="{i18n&gt;tableNameColumnTitle2}" />	
+				<Text text="{CustomerID}"/>
+					
+				<Label text="{i18n&gt;tableNameColumnTitle3}" />		
+				<Text text="{
+					path: 'OrderDate',
+					type: 'sap.ui.model.type.Date',
+					formatOptions: {
+						style: 'medium'
+					}
+				}" />
+					
+				<Label text="{i18n&gt;tableNameColumnTitle4}" />	
+				<ObjectNumber
+						number="{
+							parts:[{path:'Freight'},{path:'TBD'}],
+							type: 'sap.ui.model.type.Currency',
+							formatOptions: {showMeasure: false}
+						}"
+						unit="{TBD}" />
+			</form:SimpleForm>
+						
+ 		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP&gt;/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{objectView&gt;/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+
+	</semantic:FullscreenPage>
+
+</mvc:View>

@@ -1,0 +1,51 @@
+namespace worklistTemplateNative.db;
+
+context northwind {
+
+  entity Orders {
+    key OrderID: Integer;
+    CustomerID: String(5);
+    EmployeeID : Integer;
+    OrderDate : UTCDateTime;
+    RequiredDate : UTCDateTime;
+    ShippedDate : UTCDateTime;
+    ShipVia : Integer;
+    Freight : Decimal(19,4);
+    ShipName: String(60);
+    ShipAddress: String(40);
+    ShipCity: String(15);
+    ShipRegion: String(15);
+    ShipPostalCode: String(10);
+    ShipCountry: String(15);
+
+
+  };
+
+	entity Products{
+	 key ProductID : Integer;
+	    ProductName: String(40);
+	    SupplierID : Integer;
+	    CategoryID : Integer;
+	    QuantityPerUnit: String(10);
+	    UnitPrice: Decimal(19,4);
+	    UnitsInStock : Integer;
+	    UnitsOnOrder : Integer;
+	    ReorderLevel : Integer;
+	    Discontinued : Integer;
+	
+	};
+
+	entity Order_Details{
+	 key OrderID : Integer;
+	 key ProductID : Integer;
+	    UnitPrice: Decimal(19,4);
+	    Quantity : Integer;
+	    Discount : Double;
+	
+	};
+
+
+
+};
+
+ 

@@ -1,0 +1,17 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "(.*)(.xsodata)",
+		"destination": "js_be",
+		"authenticationType": "xsuaa",
+		"csrfProtection": false
+	}, {
+		"source": "^/(.*)",
+		"localDir": "webapp",
+		"replace": {
+			"pathSuffixes": [".html"],
+			"vars": ["ui5_library"]
+		}
+	}]
+}
